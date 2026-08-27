@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaterialSnap — Fast Material Calculators for Every Home Project</title>
+    <meta name="description" content="Free calculators for tile, paint, flooring, concrete, mulch, gravel, sod and more. No ads, no signup, mobile-friendly. Get your answer in seconds.">
+    <link rel="canonical" href="https://materialsnap.com/">
+    <link rel="icon" href="/social-card.png" type="image/png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://materialsnap.com/">
+    <meta property="og:title" content="MaterialSnap — Fast Material Calculators for Every Home Project">
+    <meta property="og:description" content="Free calculators for tile, paint, flooring, concrete, mulch, gravel, sod and more. No ads, no signup, mobile-friendly.">
+    <meta property="og:image" content="https://materialsnap.com/social-card.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MaterialSnap — Fast Material Calculators for Every Home Project">
+    <meta name="twitter:description" content="Free calculators for tile, paint, flooring, concrete, mulch, gravel, sod and more. No ads, no signup, mobile-friendly.">
+    <meta name="twitter:image" content="https://materialsnap.com/social-card.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MaterialSnap",
+      "url": "https://materialsnap.com/",
+      "description": "Free calculators for tile, paint, flooring, concrete, mulch, gravel, sod and more home improvement materials.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <style>
+        :root {
+            --bg-main: #f8fafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #475569;
+            --border-color: #e2e8f0; --btn-bg: #f1f5f9; --btn-active-bg: #e2e8f0;
+            --primary: #2563eb; --primary-light: #dbeafe; --primary-text: #ffffff;
+            --primary-strong: #1d4ed8; --primary-strong-text: #ffffff;
+            --accent: #15803d; --display-bg: #f8fafc; --danger: #b91c1c; --danger-text: #ffffff;
+            --grid-line: rgba(15, 23, 42, 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            --tile-interior-bg: #dbeafe; --tile-interior-fg: #1d4ed8;
+            --tile-structural-bg: #fee2d5; --tile-structural-fg: #9a3412;
+            --tile-outdoor-bg: #dcfce7; --tile-outdoor-fg: #15803d;
+        }
+        [data-theme="dark"] {
+            --bg-main: #18181b; --bg-card: #27272a; --text-main: #f5f5f5; --text-muted: #a1a1aa;
+            --border-color: #334155; --btn-bg: #334155; --btn-active-bg: #475569;
+            --primary: #3b82f6; --primary-light: #1e3a8a; --primary-text: #ffffff;
+            --primary-strong: #1d4ed8; --primary-strong-text: #ffffff;
+            --accent: #22c55e; --display-bg: #0f172a; --danger: #b91c1c; --danger-text: #ffffff;
+            --grid-line: rgba(148, 163, 184, 0.08);
+            --tile-interior-bg: #1e3a8a; --tile-interior-fg: #93c5fd;
+            --tile-structural-bg: #7c2d12; --tile-structural-fg: #fdba74;
+            --tile-outdoor-bg: #14532d; --tile-outdoor-fg: #86efac;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; transition: background 0.2s, color 0.2s; }
+        body {
+            background-color: var(--bg-main); color: var(--text-main);
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .site-header { width: 100%; background: #2563eb; padding: 14px 0; }
+        .site-header-inner { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { font-size: 22px; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.02em; }
+        .logo-link .snap { font-weight: 400; }
+        .header-toggle { background: #ffffff; border: none; color: #2563eb; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 700; font-size: 13px; }
+
+        .hero {
+            width: 100%;
+            max-width: 1100px; margin: 0 auto;
+            padding: 28px 16px 44px;
+            text-align: left;
+        }
+        .hero-inner { position: relative; }
+        h1 { font-style: italic; font-weight: 300; font-size: 34px; letter-spacing: -0.01em; line-height: 1.25; color: var(--text-main); }
+
+        main { width: 100%; max-width: 1100px; margin: 0 auto; padding: 4px 16px 40px; }
+        .category { margin-bottom: 42px; }
+        .category-head { margin-bottom: 14px; }
+        .category-badge { display: inline-block; font-size: 15px; font-weight: 800; padding: 7px 16px; border-radius: 0; background: #18181b; color: #ffffff; }
+        [data-theme="dark"] .category-badge { background: #e4e4e7; color: #18181b; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 16px 8px; }
+
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: repeat(4, 1fr); gap: 14px 6px; }
+        }
+        .card {
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            text-decoration: none;
+        }
+        .card-icon {
+            width: 52px; height: 52px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .card-icon svg { width: 74%; height: 74%; }
+        .card-caption {
+            color: var(--text-main); font-size: 11px; font-weight: 700; text-align: center; line-height: 1.25;
+        }
+
+        .card-icon.interior { color: var(--text-main); }
+        .card-icon.structural { color: var(--text-main); }
+        .card-icon.outdoor { color: var(--text-main); }
+
+        footer { border-top: 1px solid var(--border-color); padding: 28px 24px; text-align: center; color: var(--text-muted); font-size: 13px; }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
+        footer a:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="logo-link">Material<span class="snap">Snap</span></a>
+            <button class="header-toggle" id="themeToggle">Light</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>How much do you<br>actually need?</h1>
+        </div>
+    </section>
+
+    <main>
+        <div class="category">
+            <div class="category-head"><span class="category-badge">Interior &amp; Finishes</span></div>
+            <div class="grid">
+                <a class="card" href="tile-grout-calculator.html">
+                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
+                    <div class="card-caption">Tile &amp; Grout Calculator</div>
+                </a>
+                <a class="card" href="paint-calculator.html">
+                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 3a2 2 0 0 1 2 2v3l-8 8-5 1 1-5 8-8h2z"/><path d="M13 7l4 4"/><path d="M5 21h4l7-7-4-4-7 7v4z"/></svg></div>
+                    <div class="card-caption">Paint &amp; Primer Calculator</div>
+                </a>
+                <a class="card" href="flooring-calculator.html">
+                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 15l6-6 4 4 8-8"/><path d="M3 21l18 0"/><path d="M3 9l6-6"/></svg></div>
+                    <div class="card-caption">Flooring Calculator</div>
+                </a>
+                <a class="card" href="drywall-calculator.html">
+                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 12h18"/><path d="M12 4v16"/></svg></div>
+                    <div class="card-caption">Drywall Calculator</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-head"><span class="category-badge">Structural &amp; Masonry</span></div>
+            <div class="grid">
+                <a class="card" href="brick-block-calculator.html">
+                    <div class="card-icon structural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="8" height="4"/><rect x="13" y="4" width="8" height="4"/><rect x="7" y="10" width="8" height="4"/><rect x="3" y="16" width="8" height="4"/><rect x="13" y="16" width="8" height="4"/></svg></div>
+                    <div class="card-caption">Brick &amp; Block Calculator</div>
+                </a>
+                <a class="card" href="concrete-calculator.html">
+                    <div class="card-icon structural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20V10l8-6 8 6v10"/><path d="M4 20h16"/><path d="M9 20v-6h6v6"/></svg></div>
+                    <div class="card-caption">Concrete &amp; Slab Calculator</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-head"><span class="category-badge">Outdoor &amp; Landscaping</span></div>
+            <div class="grid">
+                <a class="card" href="mulch-calculator.html">
+                    <div class="card-icon outdoor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18c2-6 4-8 8-8s6 2 8 8"/><path d="M2 18h20"/></svg></div>
+                    <div class="card-caption">Mulch &amp; Topsoil Calculator</div>
+                </a>
+                <a class="card" href="gravel-calculator.html">
+                    <div class="card-icon outdoor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="8" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="18" cy="9" r="1.5"/><circle cx="8" cy="14" r="1.5"/><circle cx="15" cy="15" r="1.5"/><circle cx="4" cy="17" r="1.5"/><circle cx="19" cy="17" r="1.5"/></svg></div>
+                    <div class="card-caption">Gravel &amp; Sand Calculator</div>
+                </a>
+                <a class="card" href="sod-calculator.html">
+                    <div class="card-icon outdoor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20c0-4 2-6 4-6s3 2 3 4-1 2-2 2"/><path d="M10 20c0-5 2-8 5-8s4 3 4 6-1 2-2 2"/><path d="M3 20h18"/></svg></div>
+                    <div class="card-caption">Sod Calculator</div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="about.html">About</a>
+        <a href="sitemap.xml">Sitemap</a>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlDoc = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            const newTheme = htmlDoc.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            htmlDoc.setAttribute('data-theme', newTheme);
+            themeToggle.innerText = newTheme === 'dark' ? 'Light' : 'Dark';
+        });
+    </script>
+</body>
+</html>

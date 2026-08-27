@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MaterialSnap</title>
+    <meta name="description" content="MaterialSnap is a free collection of calculators for home improvement projects — tile, paint, flooring, concrete, mulch, gravel, and more. No ads, no signup.">
+    <link rel="canonical" href="https://materialsnap.com/about.html">
+    <style>
+        :root {
+            --bg-main: #f8fafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #475569;
+            --border-color: #e2e8f0; --btn-bg: #f1f5f9;
+            --grid-line: rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="dark"] {
+            --bg-main: #18181b; --bg-card: #27272a; --text-main: #f5f5f5; --text-muted: #a1a1aa;
+            --border-color: #3f3f46; --btn-bg: #3f3f46;
+            --grid-line: rgba(148, 163, 184, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; transition: background 0.2s, color 0.2s; }
+        body {
+            background-color: var(--bg-main); color: var(--text-main);
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .site-header { width: 100%; background: #2563eb; padding: 14px 0; }
+        .site-header-inner { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { font-size: 22px; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.02em; }
+        .logo-link .snap { font-weight: 400; }
+        .header-toggle { background: #ffffff; border: none; color: #2563eb; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 700; font-size: 13px; }
+
+        main { width: 100%; max-width: 640px; padding: 40px 16px 60px; }
+        h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 20px; }
+        p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+        h2 { font-size: 18px; font-weight: 800; margin: 28px 0 10px; color: var(--text-main); }
+        .back-link { display: inline-block; margin-top: 30px; font-size: 15px; color: var(--text-main); text-decoration: none; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="logo-link">Material<span class="snap">Snap</span></a>
+            <button class="header-toggle" id="themeToggle">Light</button>
+        </div>
+    </div>
+
+    <main>
+        <h1>About MaterialSnap</h1>
+
+        <p>MaterialSnap is a free collection of calculators built for people tackling their own home improvement projects — no contractor, no guesswork, just fast answers.</p>
+
+        <p>Whether you're tiling a bathroom, painting a bedroom, pouring a concrete slab, or laying down mulch for spring, MaterialSnap tells you exactly how much material to buy before you head to the store.</p>
+
+        <h2>Why we built this</h2>
+        <p>Most material calculators online are cluttered with ads or ask you to sign up just to do basic math. MaterialSnap is the opposite: type in your numbers, get your answer, done. No accounts, no popups, no tracking.</p>
+
+        <h2>How the calculations work</h2>
+        <p>Each calculator uses standard industry coverage rates (like 9 sq ft per roll of sod, or 350 sq ft per gallon of paint) with a small buffer built in for waste and cuts. These are estimates meant to get you close — always check your specific product's label for exact coverage, since materials vary by brand.</p>
+
+        <h2>Get in touch</h2>
+        <p>Have a suggestion for a new calculator, or found something that doesn't look right? We'd love to hear from you.</p>
+
+        <a href="index.html" class="back-link">← MaterialSnap</a>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlDoc = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            const newTheme = htmlDoc.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            htmlDoc.setAttribute('data-theme', newTheme);
+            themeToggle.innerText = newTheme === 'dark' ? 'Light' : 'Dark';
+        });
+    </script>
+</body>
+</html>

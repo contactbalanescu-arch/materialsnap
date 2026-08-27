@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://materialsnap.com/sitemap.xml

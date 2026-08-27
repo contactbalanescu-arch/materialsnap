@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drywall Calculator — How Many Sheets of Drywall Do I Need? | MaterialSnap</title>
+    <meta name="description" content="Free drywall calculator. Enter your wall or ceiling's length and height to instantly find out how many drywall sheets and buckets of joint compound you need. No ads, no signup.">
+    <link rel="canonical" href="https://materialsnap.com/drywall-calculator.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What size drywall sheet does this calculator assume?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Standard 4x8 foot sheets (32 square feet each). If you're using 4x12 sheets, adjust the result proportionally." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much joint compound do I need?",
+          "acceptedAnswer": { "@type": "Answer", "text": "About one 5-gallon bucket per 500 square feet for a standard 3-coat finish over taped joints." }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I buy extra drywall?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — this calculator already adds 10% extra to cover cuts around outlets, corners, and openings." }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-main: #f8fafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #475569;
+            --border-color: #e2e8f0; --btn-bg: #f1f5f9; --btn-active-bg: #e2e8f0;
+            --display-bg: #e4e4e7; --display-border: #d4d4d8; --display-text: #18181b;
+            --pill-bg: #18181b; --pill-text: #ffffff;
+            --danger: #b91c1c; --danger-text: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            --grid-line: rgba(15, 23, 42, 0.05);
+        }
+        [data-theme="dark"] {
+            --bg-main: #18181b; --bg-card: #27272a; --text-main: #f5f5f5; --text-muted: #a1a1aa;
+            --border-color: #3f3f46; --btn-bg: #3f3f46; --btn-active-bg: #52525b;
+            --display-bg: #3f3f46; --display-border: #52525b; --display-text: #ffffff;
+            --pill-bg: #e4e4e7; --pill-text: #18181b;
+            --danger: #b91c1c; --danger-text: #ffffff;
+            --grid-line: rgba(148, 163, 184, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; transition: background 0.2s, color 0.2s; user-select: none; -webkit-user-select: none; }
+        body {
+            background-color: var(--bg-main); color: var(--text-main);
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            background-image:
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .site-header { width: 100%; background: #2563eb; padding: 14px 0; }
+        .site-header-inner { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { font-size: 22px; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.02em; }
+        .logo-link .snap { font-weight: 400; }
+        .header-toggle { background: #ffffff; border: none; color: #2563eb; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 700; font-size: 13px; }
+
+        .page-hero {
+            width: 100%;
+            padding: 20px 0 24px;
+        }
+        .page-hero-inner { width: 100%; max-width: 460px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 2; }
+
+        .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+        .cat-nav-secondary { margin-bottom: 14px; }
+        .cat-nav a { font-size: 13px; font-weight: 700; text-decoration: none; padding: 8px 14px; border-radius: 0; border: 1px solid var(--border-color); color: var(--text-muted); background: var(--bg-card); }
+        .cat-nav a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
+
+        h1 { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; color: var(--text-muted); margin-bottom: 14px; }
+
+        main { width: 100%; max-width: 460px; padding: 20px 16px 0; }
+
+        .app-container { background-color: var(--bg-card); border-radius: 0; border: 2px solid var(--text-main); box-shadow: var(--shadow); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+        .material-toggle { display: flex; gap: 6px; }
+        .mat-btn { -webkit-appearance: none; appearance: none; flex: 1; background: var(--btn-bg); color: var(--text-main); border: 1px solid var(--border-color); padding: 10px 0; font-size: 13px; font-weight: 700; border-radius: 0; cursor: pointer; }
+        .mat-btn.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
+
+        .displays-grid { background: var(--display-bg); border-radius: 0; padding: 14px; border: 1px solid var(--display-border); display: flex; flex-direction: column; gap: 6px; }
+        .input-row { display: flex; justify-content: space-between; align-items: baseline; padding-left: 8px; }
+        .input-label { -webkit-appearance: none; appearance: none; border-radius: 0; font-size: 13px; font-weight: 700; color: var(--display-text); opacity: 0.65; border: none; background: transparent; cursor: pointer; padding: 6px 10px; text-align: left; }
+        .input-label:active { background: rgba(128,128,128,0.15); }
+        .input-row.active .input-label { opacity: 1; background: var(--pill-bg); color: var(--pill-text); }
+        .input-value { font-size: 26px; font-weight: 500; color: var(--display-text); }
+
+        .results-row { display: flex; gap: 10px; margin-top: 6px; padding-top: 10px; border-top: 1px dashed var(--display-border); }
+        .res-box { flex: 1; background: var(--bg-card); padding: 10px; border-radius: 0; border: 1px solid var(--border-color); }
+        .res-label { font-size: 11px; font-weight: 700; color: var(--text-muted); }
+        .res-amount { font-size: 20px; font-weight: 800; color: var(--text-main); margin-top: 2px; }
+
+        .keyboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        button.k-btn { -webkit-appearance: none; appearance: none; background: var(--btn-bg); color: var(--text-main); border: 1px solid var(--border-color); padding: 14px 0; font-size: 18px; font-weight: 700; border-radius: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        button.k-btn:active { background: var(--btn-active-bg); }
+        button.k-btn.clear-btn { background: var(--danger); color: var(--danger-text); }
+        .double-width { grid-column: span 2; }
+
+        .info-section { width: 100%; max-width: 460px; padding: 0 16px; margin-top: 20px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
+        .info-section h2 { font-size: 19px; color: var(--text-main); margin: 26px 0 10px; }
+        .info-section p { margin-bottom: 10px; }
+        .related { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .related a { font-size: 12px; color: var(--text-muted); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border-color); padding: 6px 10px; font-weight: 600; }
+        .related a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
+        .back-link { font-size: 16px; color: var(--text-main); text-decoration: none; font-weight: 800; }
+    </style>
+</head>
+<body>
+    <div class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="logo-link">Material<span class="snap">Snap</span></a>
+            <button class="header-toggle" id="themeToggle">Light</button>
+        </div>
+    </div>
+
+    <div class="page-hero">
+        <div class="page-hero-inner">
+                        <h1>How Many Sheets of Drywall Do I Need?</h1>
+            <div class="cat-nav cat-nav-secondary">
+                <a href="tile-grout-calculator.html">Tile &amp; Grout</a>
+                <a href="paint-calculator.html">Paint &amp; Primer</a>
+                <a href="flooring-calculator.html">Flooring</a>
+                <a href="drywall-calculator.html" class="active">Drywall</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="app-container">
+            <div class="displays-grid">
+                <div class="input-row active" id="rowLength">
+                    <button class="input-label" id="tabLength" data-mode="length">Wall Length:</button> <span class="input-value" id="displayLength">0 ft</span>
+                </div>
+                <div class="input-row" id="rowWidth">
+                    <button class="input-label" id="tabWidth" data-mode="width">Wall Height:</button> <span class="input-value" id="displayWidth">0 ft</span>
+                </div>
+                <div class="results-row">
+                    <div class="res-box"><div class="res-label">Drywall (sheets)</div><div class="res-amount" id="resTiles">0</div></div>
+                    <div class="res-box"><div class="res-label">Joint Compound (buckets)</div><div class="res-amount" id="resGrout">0</div></div>
+                </div>
+            </div>
+
+            <div class="keyboard">
+                <button class="k-btn" data-val="7">7</button>
+                <button class="k-btn" data-val="8">8</button>
+                <button class="k-btn" data-val="9">9</button>
+                <button class="k-btn clear-btn" data-val="C">C</button>
+                <button class="k-btn" data-val="4">4</button>
+                <button class="k-btn" data-val="5">5</button>
+                <button class="k-btn" data-val="6">6</button>
+                <button class="k-btn" data-val="back">⌫</button>
+                <button class="k-btn" data-val="1">1</button>
+                <button class="k-btn" data-val="2">2</button>
+                <button class="k-btn" data-val="3">3</button>
+                <button class="k-btn" data-val="0">0</button>
+                <button class="k-btn double-width" data-val=".">.</button>
+            </div>
+        </div>
+
+        <section class="info-section">
+            <h2>How this is calculated</h2>
+            <p>Wall Area = Length × Height. Drywall is estimated using standard 4×8 ft sheets (32 sq ft each), with 10% extra added for cuts around outlets and corners, then rounded up. Joint compound is estimated at one 5-gallon bucket per 500 sq ft for a standard 3-coat finish.</p>
+
+            <h2>FAQ</h2>
+            <p><strong>What size drywall sheet does this assume?</strong><br>Standard 4×8 ft sheets (32 sq ft each). Adjust proportionally for 4×12 sheets.</p>
+            <p><strong>How much joint compound do I need?</strong><br>About one 5-gallon bucket per 500 sq ft for a standard 3-coat finish.</p>
+            <p><strong>Should I buy extra drywall?</strong><br>Yes — 10% extra is already included for cuts around outlets and corners.</p>
+
+            <h2>Browse Calculators</h2>
+            <div class="cat-nav cat-nav-secondary">
+                <a href="tile-grout-calculator.html">Tile &amp; Grout</a>
+                <a href="paint-calculator.html">Paint &amp; Primer</a>
+                <a href="flooring-calculator.html">Flooring</a>
+                <a href="drywall-calculator.html" class="active">Drywall</a>
+            </div>
+            <p style="margin-top:10px;"><a href="index.html" class="back-link">← MaterialSnap</a></p>
+        </section>
+    </main>
+
+    <script>
+        let currentMode = 'length';
+        let rawLength = ''; let rawWidth = '';
+        let lengthFresh = true; let widthFresh = true;
+
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlDoc = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            const newTheme = htmlDoc.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            htmlDoc.setAttribute('data-theme', newTheme);
+            themeToggle.innerText = newTheme === 'dark' ? 'Light' : 'Dark';
+        });
+
+        const displayLength = document.getElementById('displayLength');
+        const displayWidth = document.getElementById('displayWidth');
+        const resTiles = document.getElementById('resTiles');
+        const resGrout = document.getElementById('resGrout');
+        const tabLength = document.getElementById('tabLength');
+        const tabWidth = document.getElementById('tabWidth');
+        const rowLength = document.getElementById('rowLength');
+        const rowWidth = document.getElementById('rowWidth');
+
+        [tabLength, tabWidth].forEach(tab => {
+            tab.addEventListener('click', () => setMode(tab.getAttribute('data-mode')));
+        });
+
+        document.querySelectorAll('.keyboard button').forEach(button => {
+            button.addEventListener('click', () => { handleInput(button.getAttribute('data-val')); });
+        });
+
+        function setMode(mode) {
+            currentMode = mode;
+            rowLength.classList.toggle('active', mode === 'length');
+            rowWidth.classList.toggle('active', mode === 'width');
+        }
+
+        function handleInput(val) {
+            if (val === 'C') {
+                rawLength = ''; rawWidth = ''; lengthFresh = true; widthFresh = true;
+                setMode('length'); updateDisplays(); return;
+            }
+            if (val === 'back') {
+                if (currentMode === 'length') { rawLength = rawLength.slice(0, -1); if (rawLength === '') lengthFresh = true; }
+                if (currentMode === 'width') { rawWidth = rawWidth.slice(0, -1); if (rawWidth === '') widthFresh = true; }
+                updateDisplays(); return;
+            }
+            if (currentMode === 'length') {
+                if (val === '.') { if (!rawLength.includes('.')) rawLength += (rawLength === '' ? '0.' : '.'); lengthFresh = false; updateDisplays(); return; }
+                rawLength = lengthFresh ? val : rawLength + val;
+                lengthFresh = false;
+                if (rawLength.replace('.', '').length > 5) rawLength = rawLength.slice(0, -1);
+            } else if (currentMode === 'width') {
+                if (val === '.') { if (!rawWidth.includes('.')) rawWidth += (rawWidth === '' ? '0.' : '.'); widthFresh = false; updateDisplays(); return; }
+                rawWidth = widthFresh ? val : rawWidth + val;
+                widthFresh = false;
+                if (rawWidth.replace('.', '').length > 5) rawWidth = rawWidth.slice(0, -1);
+            }
+            updateDisplays();
+        }
+
+        function updateDisplays() {
+            const l = parseFloat(rawLength) || 0;
+            const w = parseFloat(rawWidth) || 0;
+            displayLength.innerText = (rawLength || '0') + ' ft';
+            displayWidth.innerText = (rawWidth || '0') + ' ft';
+
+            const area = l * w;
+            const sheets = area > 0 ? Math.ceil((area * 1.10) / 32) : 0;
+            const compound = area > 0 ? Math.ceil(area / 500) : 0;
+
+            resTiles.innerText = sheets;
+            resGrout.innerText = compound;
+        }
+    </script>
+</body>
+</html>
