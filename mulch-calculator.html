@@ -359,7 +359,7 @@
             doc.setFontSize(12); doc.setTextColor(20);
             doc.text('Bags (2 cu ft)', margin + 12, y + 4);
             doc.setFont('helvetica', 'bold');
-            doc.text(String(bags), 547 - margin - 12, y + 4, { align: 'right' });
+            doc.text(resGrout.innerText, 547 - margin - 12, y + 4, { align: 'right' });
             doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(140);
             doc.text('Price used', margin + 12, y + 22);
             const priceVal = parseFloat(rawPrice) || 0;
