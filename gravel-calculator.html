@@ -102,6 +102,11 @@
         .res-box { flex: 1; background: var(--bg-card); padding: 10px; border-radius: 0; border: 1px solid var(--border-color); }
         .res-label { font-size: 11px; font-weight: 700; color: var(--text-muted); }
         .res-amount { font-size: 20px; font-weight: 800; color: var(--text-main); margin-top: 2px; }
+        .cost-row { display: flex; gap: 10px; margin-top: 6px; }
+        .cost-input-wrap { flex: 1; background: var(--bg-card); padding: 10px; border: 1px solid var(--border-color); }
+        .cost-input-wrap label { font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; }
+        .cost-input-wrap input { width: 100%; border: none; background: transparent; color: var(--text-main); font-size: 20px; font-weight: 800; outline: none; margin-top: 2px; font-family: inherit; }
+        .cost-input-wrap input::placeholder { color: var(--text-muted); opacity: 0.45; }
 
         .keyboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
         button.k-btn { -webkit-appearance: none; appearance: none; background: var(--btn-bg); color: var(--text-main); border: 1px solid var(--border-color); padding: 14px 0; font-size: 18px; font-weight: 700; border-radius: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -152,6 +157,13 @@
                 <div class="results-row">
                     <div class="res-box"><div class="res-label">Gravel (cu yd)</div><div class="res-amount" id="resTiles">0</div></div>
                     <div class="res-box"><div class="res-label">Weight (tons)</div><div class="res-amount" id="resGrout">0</div></div>
+                </div>
+                <div class="cost-row">
+                    <div class="cost-input-wrap">
+                        <label for="unitPrice">$ per ton</label>
+                        <input type="number" id="unitPrice" step="0.01" min="0" placeholder="0.00" inputmode="decimal">
+                    </div>
+                    <div class="res-box"><div class="res-label">Estimated Cost</div><div class="res-amount" id="resCost">$0</div></div>
                 </div>
             </div>
 
@@ -276,7 +288,13 @@
 
             resTiles.innerText = cuYd;
             resGrout.innerText = tons;
+
+            const unitPriceEl = document.getElementById('unitPrice');
+            const price = parseFloat(unitPriceEl.value) || 0;
+            const totalCost = tons * price;
+            document.getElementById('resCost').innerText = totalCost > 0 ? '$' + totalCost.toLocaleString(undefined, {maximumFractionDigits: 2}) : '$0';
         }
+        document.getElementById('unitPrice').addEventListener('input', updateDisplays);
     </script>
 </body>
 </html>
