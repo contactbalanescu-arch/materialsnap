@@ -128,7 +128,20 @@
                 gap: 48px;
                 padding-top: 20px;
             }
-            .app-container { width: 420px; flex-shrink: 0; }
+            .app-container {
+                width: 680px;
+                flex-shrink: 0;
+                display: grid;
+                grid-template-columns: 1fr 320px;
+                grid-template-areas:
+                    "actions actions"
+                    "fields keys";
+                gap: 12px;
+            }
+            .field-group { grid-area: fields; }
+            .keyboard { grid-area: keys; align-self: start; }
+            .keyboard .k-btn { font-size: 22px; }
+            .action-group { grid-area: actions; }
             .info-section {
                 max-width: none;
                 width: auto;
@@ -161,7 +174,7 @@
 
     <main>
         <div class="app-container">
-            <div class="displays-grid">
+            <div class="displays-grid field-group">
                 <div class="input-row active" id="rowLength">
                     <button class="input-label" id="tabLength" data-mode="length">Wall Length:</button> <span class="input-value" id="displayLength">0 ft</span>
                 </div>
@@ -171,7 +184,9 @@
                 <div class="input-row" id="rowPrice">
                     <button class="input-label" id="tabPrice" data-mode="price">$ per sheet:</button> <span class="input-value" id="displayPrice">$0.00</span>
                 </div>
-                <div class="results-row">
+                </div>
+
+            <div class="displays-grid action-group"><div class="results-row">
                     <div class="res-box"><div class="res-label">Drywall (sheets)</div><div class="res-amount" id="resTiles">0</div></div>
                     <div class="res-box"><div class="res-label">Joint Compound (buckets)</div><div class="res-amount" id="resGrout">0</div></div>
                 </div>

@@ -81,31 +81,28 @@
 
         main { width: 100%; max-width: 1100px; margin: 0 auto; padding: 4px 16px 40px; }
         .category { margin-bottom: 42px; }
-        .category-head { margin-bottom: 14px; }
-        .category-badge { display: inline-block; font-size: 15px; font-weight: 800; padding: 7px 16px; border-radius: 0; background: #18181b; color: #ffffff; }
-        [data-theme="dark"] .category-badge { background: #e4e4e7; color: #18181b; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 16px 8px; }
-
-        @media (max-width: 480px) {
-            .grid { grid-template-columns: repeat(4, 1fr); gap: 14px 6px; }
-        }
-        .card {
-            display: flex; flex-direction: column; align-items: center; gap: 6px;
-            text-decoration: none;
-        }
-        .card-icon {
-            width: 52px; height: 52px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .card-icon svg { width: 74%; height: 74%; }
-        .card-caption {
-            color: var(--text-main); font-size: 11px; font-weight: 700; text-align: center; line-height: 1.25;
+        .category-card { border: 1px solid var(--border-color); background: var(--bg-card); padding: 20px; }
+        .category-head { margin-bottom: 16px; }
+        .category-badge {
+            display: block;
+            margin: -20px -20px 0 -20px;
+            padding: 14px 20px;
+            background: #ffffff;
+            color: #18181b;
+            font-size: 19px;
+            font-weight: 800;
         }
 
-        .card-icon.interior { color: var(--text-main); }
-        .card-icon.structural { color: var(--text-main); }
-        .card-icon.outdoor { color: var(--text-main); }
+        .calc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+        .calc-list li { display: flex; align-items: center; }
+        .calc-list li::before { content: ''; width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: var(--text-main); margin-right: 12px; }
+        .calc-list a { color: var(--text-main); text-decoration: none; font-size: 15px; font-weight: 700; padding: 9px 0; flex: 1; }
+        .calc-list a:hover { text-decoration: underline; }
+
+        @media (min-width: 1000px) {
+            main { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+            .category { margin-bottom: 0; }
+        }
 
         footer { border-top: 1px solid var(--border-color); padding: 28px 24px; text-align: center; color: var(--text-muted); font-size: 13px; }
         footer a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
@@ -127,58 +124,31 @@
     </section>
 
     <main>
-        <div class="category">
+        <div class="category category-card">
             <div class="category-head"><span class="category-badge">Interior &amp; Finishes</span></div>
-            <div class="grid">
-                <a class="card" href="tile-grout-calculator.html">
-                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
-                    <div class="card-caption">Tile &amp; Grout Calculator</div>
-                </a>
-                <a class="card" href="paint-calculator.html">
-                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 3a2 2 0 0 1 2 2v3l-8 8-5 1 1-5 8-8h2z"/><path d="M13 7l4 4"/><path d="M5 21h4l7-7-4-4-7 7v4z"/></svg></div>
-                    <div class="card-caption">Paint &amp; Primer Calculator</div>
-                </a>
-                <a class="card" href="flooring-calculator.html">
-                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 15l6-6 4 4 8-8"/><path d="M3 21l18 0"/><path d="M3 9l6-6"/></svg></div>
-                    <div class="card-caption">Flooring Calculator</div>
-                </a>
-                <a class="card" href="drywall-calculator.html">
-                    <div class="card-icon interior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 12h18"/><path d="M12 4v16"/></svg></div>
-                    <div class="card-caption">Drywall Calculator</div>
-                </a>
-            </div>
+            <ul class="calc-list">
+                <li><a href="tile-grout-calculator.html">Tile &amp; Grout Calculator</a></li>
+                <li><a href="paint-calculator.html">Paint &amp; Primer Calculator</a></li>
+                <li><a href="flooring-calculator.html">Flooring Calculator</a></li>
+                <li><a href="drywall-calculator.html">Drywall Calculator</a></li>
+            </ul>
         </div>
 
-        <div class="category">
+        <div class="category category-card">
             <div class="category-head"><span class="category-badge">Structural &amp; Masonry</span></div>
-            <div class="grid">
-                <a class="card" href="brick-block-calculator.html">
-                    <div class="card-icon structural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="8" height="4"/><rect x="13" y="4" width="8" height="4"/><rect x="7" y="10" width="8" height="4"/><rect x="3" y="16" width="8" height="4"/><rect x="13" y="16" width="8" height="4"/></svg></div>
-                    <div class="card-caption">Brick &amp; Block Calculator</div>
-                </a>
-                <a class="card" href="concrete-calculator.html">
-                    <div class="card-icon structural"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20V10l8-6 8 6v10"/><path d="M4 20h16"/><path d="M9 20v-6h6v6"/></svg></div>
-                    <div class="card-caption">Concrete &amp; Slab Calculator</div>
-                </a>
-            </div>
+            <ul class="calc-list">
+                <li><a href="brick-block-calculator.html">Brick &amp; Block Calculator</a></li>
+                <li><a href="concrete-calculator.html">Concrete &amp; Slab Calculator</a></li>
+            </ul>
         </div>
 
-        <div class="category">
+        <div class="category category-card">
             <div class="category-head"><span class="category-badge">Outdoor &amp; Landscaping</span></div>
-            <div class="grid">
-                <a class="card" href="mulch-calculator.html">
-                    <div class="card-icon outdoor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18c2-6 4-8 8-8s6 2 8 8"/><path d="M2 18h20"/></svg></div>
-                    <div class="card-caption">Mulch &amp; Topsoil Calculator</div>
-                </a>
-                <a class="card" href="gravel-calculator.html">
-                    <div class="card-icon outdoor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="8" r="1.5"/><circle cx="12" cy="6" r="1.5"/><circle cx="18" cy="9" r="1.5"/><circle cx="8" cy="14" r="1.5"/><circle cx="15" cy="15" r="1.5"/><circle cx="4" cy="17" r="1.5"/><circle cx="19" cy="17" r="1.5"/></svg></div>
-                    <div class="card-caption">Gravel &amp; Sand Calculator</div>
-                </a>
-                <a class="card" href="sod-calculator.html">
-                    <div class="card-icon outdoor"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20c0-4 2-6 4-6s3 2 3 4-1 2-2 2"/><path d="M10 20c0-5 2-8 5-8s4 3 4 6-1 2-2 2"/><path d="M3 20h18"/></svg></div>
-                    <div class="card-caption">Sod Calculator</div>
-                </a>
-            </div>
+            <ul class="calc-list">
+                <li><a href="mulch-calculator.html">Mulch &amp; Topsoil Calculator</a></li>
+                <li><a href="gravel-calculator.html">Gravel &amp; Sand Calculator</a></li>
+                <li><a href="sod-calculator.html">Sod Calculator</a></li>
+            </ul>
         </div>
     </main>
 
