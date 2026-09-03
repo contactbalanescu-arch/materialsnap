@@ -100,7 +100,7 @@
         .input-row { display: flex; justify-content: space-between; align-items: baseline; padding-left: 8px; }
         .input-label { -webkit-appearance: none; appearance: none; border-radius: 0; font-size: 13px; font-weight: 700; color: var(--display-text); opacity: 1; border: 1px solid var(--display-border); background: var(--bg-card); cursor: pointer; padding: 6px 10px; text-align: left; }
         .input-label:active { background: rgba(128,128,128,0.15); }
-        .input-row.active .input-label { opacity: 1; background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
+        .input-row.active .input-label { opacity: 1; background: #2563eb; color: #ffffff; border-color: #2563eb; }
         .input-value { font-size: 26px; font-weight: 500; color: var(--display-text); }
 
         .results-row { display: flex; gap: 10px; margin-top: 6px; padding-top: 10px; border-top: 1px dashed var(--display-border); }
@@ -122,6 +122,25 @@
         .related a { font-size: 12px; color: var(--text-muted); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border-color); padding: 6px 10px; font-weight: 600; }
         .related a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
         .back-link { font-size: 16px; color: var(--text-main); text-decoration: none; font-weight: 800; }
+
+        @media (min-width: 1000px) {
+            .page-hero-inner { max-width: 1100px; }
+            main {
+                max-width: 1100px;
+                display: flex;
+                align-items: flex-start;
+                gap: 48px;
+                padding-top: 20px;
+            }
+            .app-container { width: 420px; flex-shrink: 0; }
+            .info-section {
+                max-width: none;
+                width: auto;
+                flex: 1;
+                margin-top: 0;
+                padding: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -314,6 +333,8 @@
             document.getElementById('shopLowes').href = 'https://www.lowes.com/search?searchTerm=' + encodeURIComponent('mulch bags');
 
         }
+
+        updateDisplays();
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
