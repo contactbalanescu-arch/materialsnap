@@ -246,6 +246,18 @@
         let currentMode = 'length';
         let rawLength = ''; let rawWidth = ''; let rawPrice = '';
         let lengthFresh = true; let widthFresh = true; let priceFresh = true;
+        let coats = 2;
+
+        const coat1 = document.getElementById('coat1');
+        const coat2 = document.getElementById('coat2');
+        [coat1, coat2].forEach(btn => {
+            btn.addEventListener('click', () => {
+                coats = parseInt(btn.getAttribute('data-coats'), 10);
+                coat1.classList.toggle('active', coats === 1);
+                coat2.classList.toggle('active', coats === 2);
+                updateDisplays();
+            });
+        });
 
         const themeToggle = document.getElementById('themeToggle');
         const htmlDoc = document.documentElement;
