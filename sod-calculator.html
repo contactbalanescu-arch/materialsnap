@@ -114,7 +114,18 @@
 
         .info-section { width: 100%; max-width: 460px; padding: 0 16px; margin-top: 20px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
         .info-section h2 { font-size: 19px; color: var(--text-main); margin: 26px 0 10px; }
+        .info-section h2.section-band { display: block; background: #ffffff; color: #111111; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
         .info-section p { margin-bottom: 10px; }
+        .info-section ul { margin: 0 0 14px 20px; }
+        .info-section li { margin-bottom: 6px; }
+
+        .accordion-item { border-bottom: 1px solid var(--border-color); }
+        .accordion-item:first-child { border-top: 1px solid var(--border-color); }
+        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: none; border: none; padding: 12px 0; font: inherit; font-size: 15px; font-weight: 700; color: var(--text-main); text-align: left; cursor: pointer; -webkit-appearance: none; appearance: none; user-select: none; -webkit-user-select: none; }
+        .accordion-icon { flex-shrink: 0; width: 20px; text-align: center; font-size: 18px; font-weight: 400; color: var(--text-muted); }
+        .accordion-body { display: none; padding: 0 0 14px; }
+        .accordion-item.open .accordion-body { display: block; }
+        .accordion-body p { margin: 0; user-select: text; -webkit-user-select: text; }
         .related { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .related a { font-size: 12px; color: var(--text-muted); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border-color); padding: 6px 10px; font-weight: 600; }
         .related a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
@@ -221,11 +232,83 @@
             <h2>How this is calculated</h2>
             <p>New lawns are calculated straightforwardly by area: Lawn Area = Length × Width. A standard roll of sod covers about 9 square feet, and we add a 5% buffer for trimming and waste around edges and curves, then round up to the nearest full roll — so you always have enough on delivery day.</p>
 
-            <h2>FAQ</h2>
-            <p><strong>How much area does one roll of sod cover?</strong><br>About 9 square feet per roll, though pallet sizes vary by supplier — most sod farms sell by the pallet, typically covering 400 to 500 sq ft. Check with your local garden center or sod farm for their exact coverage.</p>
-            <p><strong>Should I order extra sod?</strong><br>Yes — most installers add 5% extra to cover trimming around edges, curves, driveways, and irregular shapes. This calculator already includes that buffer.</p>
-            <p><strong>How do I measure an irregular lawn?</strong><br>Break the lawn into smaller rectangles or triangles, calculate each section separately, then add the areas together. For curved beds, slight overestimation is safer than running short.</p>
-            <p><strong>How soon after laying sod can I walk or mow on it?</strong><br>Avoid walking on new sod for the first 1 to 2 weeks while roots establish, except for watering. Wait until it resists a gentle tug — usually 2 to 3 weeks — before the first mow, keeping the blade set high for the first several cuts.</p>
+            <h2 class="section-band">FAQ</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How much area does one roll of sod cover?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>About 9 square feet per roll, though pallet sizes vary by supplier — most sod farms sell by the pallet, typically covering 400 to 500 sq ft. Check with your local garden center or sod farm for their exact coverage.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Should I order extra sod?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Yes — most installers add 5% extra to cover trimming around edges, curves, driveways, and irregular shapes. This calculator already includes that buffer.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How do I measure an irregular lawn?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Break the lawn into smaller rectangles or triangles, calculate each section separately, then add the areas together. For curved beds, slight overestimation is safer than running short.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How soon after laying sod can I walk or mow on it?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Avoid walking on new sod for the first 1 to 2 weeks while roots establish, except for watering. Wait until it resists a gentle tug — usually 2 to 3 weeks — before the first mow, keeping the blade set high for the first several cuts.</p>
+                </div>
+            </div>
+
+            <h2 class="section-band">Common Mistakes to Avoid</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Letting sod sit stacked too long</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Letting sod rolls sit stacked for more than 24-48 hours before laying them — they can yellow and die from their own trapped heat.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Under-watering the first two weeks</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Under-watering new sod in the first two weeks, which stops the roots from establishing properly.</p>
+                </div>
+            </div>
+
+            <h2 class="section-band">Pro Tips</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Stagger the seams</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Lay sod in a staggered, brick-like pattern rather than aligning every seam — it makes for a stronger, more natural-looking lawn.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Water heavily right after laying</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Water heavily right after laying, then keep it consistently moist until it resists a gentle tug.</p>
+                </div>
+            </div>
 
             <h2>Browse Calculators</h2>
             <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:14px 0 6px;">Interior &amp; Finishes</p>
@@ -413,6 +496,15 @@
             doc.text('Generated free at materialsnap.com \u2014 no ads, no signup.', margin, y);
 
             doc.save('materialsnap-sod-estimate.pdf');
+        });
+    </script><script>
+        document.querySelectorAll('.accordion-header').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.accordion-item');
+                var isOpen = item.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                btn.querySelector('.accordion-icon').textContent = isOpen ? '\u2212' : '+';
+            });
         });
     </script>
 </body>

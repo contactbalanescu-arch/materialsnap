@@ -117,7 +117,18 @@
 
         .info-section { width: 100%; max-width: 460px; padding: 0 16px; margin-top: 20px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
         .info-section h2 { font-size: 19px; color: var(--text-main); margin: 26px 0 10px; }
+        .info-section h2.section-band { display: block; background: #ffffff; color: #111111; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
         .info-section p { margin-bottom: 10px; }
+        .info-section ul { margin: 0 0 14px 20px; }
+        .info-section li { margin-bottom: 6px; }
+
+        .accordion-item { border-bottom: 1px solid var(--border-color); }
+        .accordion-item:first-child { border-top: 1px solid var(--border-color); }
+        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: none; border: none; padding: 12px 0; font: inherit; font-size: 15px; font-weight: 700; color: var(--text-main); text-align: left; cursor: pointer; -webkit-appearance: none; appearance: none; user-select: none; -webkit-user-select: none; }
+        .accordion-icon { flex-shrink: 0; width: 20px; text-align: center; font-size: 18px; font-weight: 400; color: var(--text-muted); }
+        .accordion-body { display: none; padding: 0 0 14px; }
+        .accordion-item.open .accordion-body { display: block; }
+        .accordion-body p { margin: 0; user-select: text; -webkit-user-select: text; }
         .related { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .related a { font-size: 12px; color: var(--text-muted); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border-color); padding: 6px 10px; font-weight: 600; }
         .related a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
@@ -228,11 +239,83 @@
             <h2>How this is calculated</h2>
             <p>Masonry calculations depend heavily on surface square footage and the inclusion of mortar joints. This estimator runs on the standard parameter: Wall Area = Length × Height. Standard modular bricks require approximately 7 bricks per square foot when accounting for standard 3/8-inch mortar joints. Standard 8×16-inch concrete blocks (CMU) require exactly 1.125 blocks per square foot of wall surface. We include a built-in 5% waste buffer to make sure you round up to safe quantities before ordering delivery.</p>
 
-            <h2>FAQ</h2>
-            <p><strong>How many bricks per square foot?</strong><br>About 7 standard modular bricks per square foot, including mortar joints. This can vary slightly with different brick sizes.</p>
-            <p><strong>How many concrete blocks per square foot?</strong><br>About 1.125 standard 8×16-inch blocks per square foot.</p>
-            <p><strong>How many bricks do I need for a retaining wall?</strong><br>For a single-wythe (one brick thick) wall, multiply your wall length by height to get the square footage, then multiply by 7. For a double-wythe structural wall (two bricks thick), double that total quantity.</p>
-            <p><strong>Should I order extra?</strong><br>Yes — most builders add 5% extra to cover cuts, breakage, and mistakes made while getting corners and courses to line up. This calculator already includes that buffer.</p>
+            <h2 class="section-band">FAQ</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How many bricks per square foot?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>About 7 standard modular bricks per square foot, including mortar joints. This can vary slightly with different brick sizes.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How many concrete blocks per square foot?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>About 1.125 standard 8&times;16-inch blocks per square foot.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How many bricks do I need for a retaining wall?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>For a single-wythe (one brick thick) wall, multiply your wall length by height to get the square footage, then multiply by 7. For a double-wythe structural wall (two bricks thick), double that total quantity.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Should I order extra?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Yes — most builders add 5% extra to cover cuts, breakage, and mistakes made while getting corners and courses to line up. This calculator already includes that buffer.</p>
+                </div>
+            </div>
+
+            <h2 class="section-band">Common Mistakes to Avoid</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Laying bone-dry bricks in heat</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Laying dry clay bricks in hot weather without wetting them first — they pull moisture out of the mortar too fast and weaken the bond.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Inconsistent joint thickness</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Letting mortar joint thickness drift inconsistently, which throws off your coursing height over a long wall.</p>
+                </div>
+            </div>
+
+            <h2 class="section-band">Pro Tips</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Check level every few courses</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Check level and plumb every few courses, not just at the end — small errors compound quickly the higher you go.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Use a story pole</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Keep a story pole (a board marked with your intended joint spacing) so every course lines up consistently.</p>
+                </div>
+            </div>
 
             <h2>Browse Calculators</h2>
             <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:14px 0 6px;">Interior &amp; Finishes</p>
@@ -437,6 +520,15 @@
             doc.text('Generated free at materialsnap.com \u2014 no ads, no signup.', margin, y);
 
             doc.save('materialsnap-brick-block-estimate.pdf');
+        });
+    </script><script>
+        document.querySelectorAll('.accordion-header').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.accordion-item');
+                var isOpen = item.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                btn.querySelector('.accordion-icon').textContent = isOpen ? '\u2212' : '+';
+            });
         });
     </script>
 </body>

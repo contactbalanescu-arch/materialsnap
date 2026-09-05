@@ -3,46 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravel & Sand Calculator – How Much Do You Need? (No Ads)</title>
-    <meta name="description" content="Free gravel and sand calculator. Enter your area's length, width, and depth to instantly find out how many cubic yards and tons you need. No ads, no signup.">
-    <link rel="canonical" href="https://materialsnap.com/gravel-calculator.html">
-<meta property="og:title" content="Gravel & Sand Calculator – How Much Do You Need?">
-<meta property="og:description" content="Free gravel and sand calculator. Enter your area's length, width, and depth to instantly find out how many cubic yards and tons you need. No ads, no signup.">
-<meta property="og:image" content="https://materialsnap.com/social-card.png">
-<meta property="og:url" content="https://materialsnap.com/gravel-calculator.html">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much gravel do I need for a driveway or path?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Multiply the area by your desired depth to get volume in cubic yards, then convert to tons using roughly 1.4 tons per cubic yard for standard crushed gravel. Most suppliers sell and deliver gravel by the ton, so this is the figure to bring when you call for a quote." }
-        },
-        {
-          "@type": "Question",
-          "name": "How deep should a gravel path or driveway be?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Typically 2 to 4 inches for walkways and decorative areas. Driveways usually need 4 to 6 inches over a compacted base, often applied in two layers: a coarser base layer for drainage and stability, topped with a finer decorative layer." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does the weight differ between gravel and sand?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Slightly — this calculator uses about 1.4 tons per cubic yard as a general estimate for gravel. Sand runs a bit heavier, typically 1.4 to 1.6 tons per cubic yard depending on moisture content. Always check with your supplier for the exact density of the specific material you're buying." }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need a weed barrier or landscape fabric under gravel?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, for most paths and driveways. Landscape fabric laid before the gravel prevents weeds from growing up through the stones and stops the gravel from sinking into the soil below over time, which keeps the surface looking clean with far less maintenance." }
-        }
-      ]
-    }
-    </script>
-
+    <meta name="robots" content="noindex, nofollow">
+    <title>Gravel & Sand Calculator — Embeddable Widget | MaterialSnap</title>
     <style>
+
         :root {
             --bg-main: #f8fafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #475569;
             --border-color: #e2e8f0; --btn-bg: #f1f5f9; --btn-active-bg: #e2e8f0;
@@ -117,18 +81,9 @@
 
         .info-section { width: 100%; max-width: 460px; padding: 0 16px; margin-top: 20px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
         .info-section h2 { font-size: 19px; color: var(--text-main); margin: 26px 0 10px; }
-        .info-section h2.section-band { display: block; background: #ffffff; color: #111111; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
         .info-section p { margin-bottom: 10px; }
         .info-section ul { margin: 0 0 14px 20px; }
         .info-section li { margin-bottom: 6px; }
-
-        .accordion-item { border-bottom: 1px solid var(--border-color); }
-        .accordion-item:first-child { border-top: 1px solid var(--border-color); }
-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: none; border: none; padding: 12px 0; font: inherit; font-size: 15px; font-weight: 700; color: var(--text-main); text-align: left; cursor: pointer; -webkit-appearance: none; appearance: none; user-select: none; -webkit-user-select: none; }
-        .accordion-icon { flex-shrink: 0; width: 20px; text-align: center; font-size: 18px; font-weight: 400; color: var(--text-muted); }
-        .accordion-body { display: none; padding: 0 0 14px; }
-        .accordion-item.open .accordion-body { display: block; }
-        .accordion-body p { margin: 0; user-select: text; -webkit-user-select: text; }
         .related { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .related a { font-size: 12px; color: var(--text-muted); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border-color); padding: 6px 10px; font-weight: 600; }
         .related a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
@@ -165,29 +120,23 @@
                 padding: 0;
             }
         }
+    
+        .embed-wrap { max-width: 460px; margin: 0 auto; padding: 16px; }
+        .embed-attribution { text-align: center; font-size: 12px; color: var(--text-muted); padding: 4px 16px 20px; }
+        .embed-attribution a { color: var(--text-main); font-weight: 700; text-decoration: none; }
+        .embed-attribution a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="site-header">
         <div class="site-header-inner">
-            <a href="index.html" class="logo-link">Material<span class="snap">Snap</span></a>
+            <a href="https://materialsnap.com/gravel-calculator.html" target="_blank" rel="noopener" class="logo-link">Material<span class="snap">Snap</span></a>
             <button class="header-toggle" id="themeToggle">Light</button>
         </div>
     </div>
 
-    <div class="page-hero">
-        <div class="page-hero-inner">
-                        <h1>How Much Gravel Do I Need?</h1>
-            <div class="cat-nav cat-nav-secondary">
-                <a href="mulch-calculator.html">Mulch &amp; Topsoil</a>
-                <a href="gravel-calculator.html" class="active">Gravel &amp; Sand</a>
-                <a href="sod-calculator.html">Sod</a>
-            </div>
-        </div>
-    </div>
-
-    <main>
-        <div class="app-container">
+    <div class="embed-wrap">
+<div class="app-container">
             <div class="displays-grid field-group">
                 <div class="input-row active" id="rowLength">
                     <button class="input-label" id="tabLength" data-mode="length">Area Length:</button> <span class="input-value" id="displayLength">0 ft</span>
@@ -233,113 +182,9 @@
                 <button class="k-btn double-width" data-val=".">.</button>
             </div>
         </div>
-
-        <section class="info-section">
-            <h2>How this is calculated</h2>
-            <p>Gravel is sold by weight, not just volume, so this tool bridges both: Volume = Length × Width × Depth. We convert depth from inches to feet, calculate cubic feet, then convert to cubic yards (÷27) and round up to the nearest quarter yard. Weight is estimated at 1.4 tons per cubic yard, a common density for standard crushed gravel and sand — the figure most suppliers use to quote and deliver by the ton.</p>
-
-            <h2 class="section-band">FAQ</h2>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>How much gravel do I need for a driveway or path?</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Multiply the area by your desired depth to get volume in cubic yards, then convert to tons using roughly 1.4 tons per cubic yard. Most suppliers sell and deliver gravel by the ton, so this is the figure to bring when you call for a quote.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>How deep should a gravel path or driveway be?</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Typically 2 to 4 inches for walkways and decorative areas. Driveways usually need 4 to 6 inches over a compacted base, often in two layers — a coarser base for drainage, topped with a finer decorative layer.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>Does the weight differ between gravel and sand?</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Slightly — this calculator uses about 1.4 tons per cubic yard for gravel. Sand runs a bit heavier, typically 1.4 to 1.6 tons per cubic yard depending on moisture. Check with your supplier for the exact density of your material.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>Do I need a weed barrier under gravel?</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Yes, for most paths and driveways. Landscape fabric laid before the gravel prevents weeds from growing through and stops the gravel from sinking into the soil over time, keeping the surface cleaner with less maintenance.</p>
-                </div>
-            </div>
-
-            <h2 class="section-band">Common Mistakes to Avoid</h2>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>Skipping landscape fabric</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Skipping the landscape fabric layer — without it, gravel slowly sinks into the soil and weeds grow up through it.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>Not compacting each layer</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Not compacting each layer when building up a driveway in multiple lifts.</p>
-                </div>
-            </div>
-
-            <h2 class="section-band">Pro Tips</h2>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>Choose angular gravel</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Use angular crushed gravel rather than smooth river rock for driveways and paths — it locks together and stays put underfoot.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <span>Edge the area</span>
-                    <span class="accordion-icon">+</span>
-                </button>
-                <div class="accordion-body">
-                    <p>Edge the area with pavers or metal edging to stop gravel from migrating into the lawn.</p>
-                </div>
-            </div>
-
-            <h2>Browse Calculators</h2>
-            <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:14px 0 6px;">Interior &amp; Finishes</p>
-            <div class="cat-nav cat-nav-secondary">
-                <a href="tile-grout-calculator.html">Tile &amp; Grout</a>
-                <a href="paint-calculator.html">Paint &amp; Primer</a>
-                <a href="flooring-calculator.html">Flooring</a>
-                <a href="drywall-calculator.html">Drywall</a>
-            </div>
-            <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:14px 0 6px;">Structural &amp; Masonry</p>
-            <div class="cat-nav cat-nav-secondary">
-                <a href="brick-block-calculator.html">Brick &amp; Block</a>
-                <a href="concrete-calculator.html">Concrete &amp; Slab</a>
-            </div>
-            <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:14px 0 6px;">Outdoor &amp; Landscaping</p>
-            <div class="cat-nav cat-nav-secondary">
-                <a href="mulch-calculator.html">Mulch &amp; Topsoil</a>
-                <a href="gravel-calculator.html" class="active">Gravel &amp; Sand</a>
-                <a href="sod-calculator.html">Sod</a>
-            </div>
-            <p style="margin-top:10px;"><a href="index.html" class="back-link">&larr; MaterialSnap</a></p>
-        </section>
-    </main>
-
-    <script>
+    </div>
+    <div class="embed-attribution">Calculator by <a href="https://materialsnap.com/gravel-calculator.html" target="_blank" rel="noopener">MaterialSnap</a></div>
+<script>
         let currentMode = 'length';
         let rawLength = ''; let rawWidth = ''; let rawThickness = '3'; let rawPrice = '';
         let lengthFresh = true; let widthFresh = true; let thicknessFresh = true; let priceFresh = true;
@@ -517,15 +362,6 @@
             doc.text('Generated free at materialsnap.com \u2014 no ads, no signup.', margin, y);
 
             doc.save('materialsnap-gravel-estimate.pdf');
-        });
-    </script><script>
-        document.querySelectorAll('.accordion-header').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var item = btn.closest('.accordion-item');
-                var isOpen = item.classList.toggle('open');
-                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-                btn.querySelector('.accordion-icon').textContent = isOpen ? '\u2212' : '+';
-            });
         });
     </script>
 </body>

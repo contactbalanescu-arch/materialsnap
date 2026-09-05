@@ -114,7 +114,18 @@
 
         .info-section { width: 100%; max-width: 460px; padding: 0 16px; margin-top: 20px; color: var(--text-muted); font-size: 17px; line-height: 1.75; }
         .info-section h2 { font-size: 19px; color: var(--text-main); margin: 26px 0 10px; }
+        .info-section h2.section-band { display: block; background: #ffffff; color: #111111; padding: 8px 14px; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
         .info-section p { margin-bottom: 10px; }
+        .info-section ul { margin: 0 0 14px 20px; }
+        .info-section li { margin-bottom: 6px; }
+
+        .accordion-item { border-bottom: 1px solid var(--border-color); }
+        .accordion-item:first-child { border-top: 1px solid var(--border-color); }
+        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: none; border: none; padding: 12px 0; font: inherit; font-size: 15px; font-weight: 700; color: var(--text-main); text-align: left; cursor: pointer; -webkit-appearance: none; appearance: none; user-select: none; -webkit-user-select: none; }
+        .accordion-icon { flex-shrink: 0; width: 20px; text-align: center; font-size: 18px; font-weight: 400; color: var(--text-muted); }
+        .accordion-body { display: none; padding: 0 0 14px; }
+        .accordion-item.open .accordion-body { display: block; }
+        .accordion-body p { margin: 0; user-select: text; -webkit-user-select: text; }
         .related { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .related a { font-size: 12px; color: var(--text-muted); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border-color); padding: 6px 10px; font-weight: 600; }
         .related a.active { background: var(--pill-bg); color: var(--pill-text); border-color: var(--pill-bg); }
@@ -223,11 +234,92 @@
             <h2>How this is calculated</h2>
             <p>Calculating tile requires precision to avoid mid-project delays. This tool determines your total floor or wall square footage and matches it against your target tile size using the formula: Number of Tiles = (Total Area / Tile Area) + 10% waste factor. We automatically add a standard 10% waste factor to account for inevitable tile breakage, corner cuts, and edge adjustments. Grout needs are calculated based on your tile dimensions and grout joint width — deeper or wider joints require significantly more grout volume.</p>
 
-            <h2>FAQ</h2>
-            <p><strong>What tile size does this calculator assume?</strong><br>Standard 12×12 inch tiles (1 sq ft each). If you're using a different tile size, adjust the result proportionally.</p>
-            <p><strong>How much grout do I need for my tile project?</strong><br>Grout coverage depends heavily on tile size and the width of the gap between them. For standard 12×12 tiles with a 1/8-inch grout line, a 25 lb bag of powder grout typically covers about 70 to 90 sq ft. Smaller tiles like mosaic or subway tiles have many more joints and require significantly more grout per square foot.</p>
-            <p><strong>Why should I add a waste factor to my tile calculation?</strong><br>When tiling, you'll constantly need to cut full tiles to fit against walls, corners, and fixtures like toilets or pipes. These cut pieces often can't be reused. A 10% waste allowance ensures you have enough full tiles to complete the project smoothly without running out of the same dye lot.</p>
-            <p><strong>What is the difference between sanded and unsanded grout?</strong><br>Use sanded grout for tile joints 1/8-inch wide or larger — the sand prevents shrinking and cracking as it cures. Use unsanded grout for thin joints or delicate surfaces like polished marble or glass tile that could be scratched by sand particles.</p>
+            <h2 class="section-band">FAQ</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>What tile size does this calculator assume?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Standard 12&times;12 inch tiles (1 sq ft each). If you're using a different tile size, adjust the result proportionally.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>How much grout do I need for my tile project?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Grout coverage depends heavily on tile size and the width of the gap between them. For standard 12&times;12 tiles with a 1/8-inch grout line, a 25 lb bag of powder grout typically covers about 70 to 90 sq ft. Smaller tiles like mosaic or subway tiles have many more joints and require significantly more grout per square foot.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Why should I add a waste factor to my tile calculation?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>When tiling, you'll constantly need to cut full tiles to fit against walls, corners, and fixtures like toilets or pipes. These cut pieces often can't be reused. A 10% waste allowance ensures you have enough full tiles to complete the project smoothly without running out of the same dye lot.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>What is the difference between sanded and unsanded grout?</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Use sanded grout for tile joints 1/8-inch wide or larger — the sand prevents shrinking and cracking as it cures. Use unsanded grout for thin joints or delicate surfaces like polished marble or glass tile that could be scratched by sand particles.</p>
+                </div>
+            </div>
+
+            <h2 class="section-band">Common Mistakes to Avoid</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Skipping the dry layout</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Skipping the dry layout — laying tiles without adhesive first to plan spacing — often ends in awkward slivers of tile against the walls.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Grout mixed too thin</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Mixing grout too thin/runny. It looks easier to spread but cures weaker and cracks sooner.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Unsealed natural stone</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Not sealing natural stone tile before grouting — unlike ceramic or porcelain, stone is porous and grout can permanently stain it.</p>
+                </div>
+            </div>
+
+            <h2 class="section-band">Pro Tips</h2>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Start layout from the center</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Start your layout from the center of the room outward, not from a wall, so any cut tiles end up even on both sides.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span>Wipe haze within 30 minutes</span>
+                    <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Wipe grout haze off the tile face within 30 minutes of application — once it fully cures, it's much harder to remove.</p>
+                </div>
+            </div>
 
             <h2>Browse Calculators</h2>
             <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:14px 0 6px;">Interior &amp; Finishes</p>
@@ -416,6 +508,15 @@
             doc.text('Generated free at materialsnap.com \u2014 no ads, no signup.', margin, y);
 
             doc.save('materialsnap-tile-grout-estimate.pdf');
+        });
+    </script><script>
+        document.querySelectorAll('.accordion-header').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.accordion-item');
+                var isOpen = item.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                btn.querySelector('.accordion-icon').textContent = isOpen ? '\u2212' : '+';
+            });
         });
     </script>
 </body>
